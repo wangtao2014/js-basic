@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<script src="script/clock.js"></script>
+<script src="script/extended-clock.js"></script>
+<script>
+    let lowResolutionClock = new ExtendedClock({
+        template: 'h:m:s',
+        precision: 2000
+    });
+
+    lowResolutionClock.start();
+    setTimeout(() => lowResolutionClock.stop(), 10000);
+
+</script>
+<script type="module">
+    window.user = "hisssss";
+    import { sayHi } from './script/say.js';
+    document.body.innerHTML = sayHi('John');
+</script>
+
+<script type="module">
+    console.log(window.user);
+    // console.log(import.meta.url);
+</script>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <script src="script/outils.min.js"></script>
+
+    <!-- JS代码需要编写到script中 -->
+    <script>
+        window.currentUser = {
+            name: "John",
+        };
+
+        function showMessage() {
+            console.log('Hello everyone!');
+        }
+        showMessage();
+        // alert(showMessage);
+
+        // Outils
+        console.log(outils.getOS());
+        console.log(outils.getExplore());
+    </script>
+</head>
+
+<body>
+    <!-- <script src="script/script.js"></script> -->
+    <!-- <script src="script/fun_invoke.js" ></script> -->
+    <!-- <script src="script/varable.js" ></script> -->
+    <!-- <script src="script/object.js"></script> -->
+    <!-- <script src="script/calculator.js"></script> -->
+    <!-- <script src="script/symbol.js"></script> -->
+    <!-- <script src="script/array.js"></script> -->
+    <!-- <script src="script/iter.js"></script> -->
+    <!-- <script src="script/refactor.js"></script> -->
+    <!-- <script src="script/json.js"></script> -->
+    <!-- <script src="script/spread.js"></script> -->
+    <!-- <script src="script/global.js"></script> -->
+    <!-- <script src="script/counter.js"></script> -->
+    <!-- <script src="script/funObj.js"></script> -->
+    <!-- <script src="script/newFun.js"></script> -->
+    <!-- <script src="script/time.js"></script> -->
+    <!-- <script src="script/binding.js"></script> -->
+    <!-- <script src="script/apply.js"></script> -->
+    <!-- <script src="script/spy.js"></script> -->
+    <!-- <script src="script/access.js"></script> -->
+    <!-- <script src="script/pro.js"></script> -->
+    <!-- <script src="script/user.js"></script> -->
+    <script src="script/promise2.js"></script>
+</body>
+
+</html>
