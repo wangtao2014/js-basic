@@ -14,3 +14,5 @@ alert( isBoss );
 let value = true;
 alert(typeof value);
 alert(String(value));
+
+console.log('hello js');
