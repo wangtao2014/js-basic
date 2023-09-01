@@ -14,8 +14,9 @@
 </script>
 <script type="module">
     window.user = "hisssss";
-    import { sayHi } from './script/say.js';
+    import { sayHi, sayHello } from './script/say.js';
     document.body.innerHTML = sayHi('John');
+    document.body.innerHTML = sayHello('John');
 </script>
 
 <script type="module">
@@ -71,7 +72,7 @@
     <!-- <script src="script/pro.js"></script> -->
     <!-- <script src="script/user.js"></script> -->
     <!-- <script src="script/promise2.js"></script> -->
-     <script src="script/quickref.js"></script>
+     <script type="module" src="script/quickref.js"></script>
 </body>
 
 </html>

@@ -104,7 +104,7 @@ console.log(filterArray);
 // define
 const apple = {
     color: 'Green',
-    price: { bulk: '$3/kg', smallQty: '$4/kg' }
+    price: {bulk: '$3/kg', smallQty: '$4/kg'}
 }
 
 console.log(apple.color);
@@ -127,13 +127,13 @@ console.log(student);
 // student = {};
 
 // assignment shorthand syntax
-const { name, grade } = student;
+const {name, grade} = student;
 console.log(name);
 console.log(grade);
 
 // shorthand object creation
 const activity = 'Surfing';
-const beach = { activity };
+const beach = {activity};
 console.log(beach);
 
 // this keyword
@@ -243,4 +243,93 @@ const mySong = new Song({
 });
 
 // modules
+// import { sayHello, sayHi } from './say.js';
+const sayHiModule = require('./say.js');
+console.log(sayHiModule.sayHi('hello'));
+console.log(sayHiModule.sayHello('hello'));
 
+// promise
+const promise = new Promise((resolve, reject) => {
+    const result = true;
+    if (result) {
+        resolve('Resolved');
+    } else {
+        reject(Error('Error'));
+    }
+}).then(
+    (res) => res,
+    (err) => err
+);
+
+const executorFn = (resolve, reject) => {
+    console.log('🔥'); // 1
+    resolve('Resolved3333'); // 3
+    reject(Error('Ops...')); // 同时执行时，只会执行 resolve
+    console.log('🔥🔥'); // 2
+};
+
+const promiseF = new Promise(executorFn).then(
+    (res) => res,
+).catch(
+    (err) => console.log(err),
+);
+
+// promise.all()
+Promise.all([promise, promiseF]).then((res) => {
+    console.log(res[0]);
+    console.log(res[1]);
+});
+
+// Avoiding nested Promise and .then()
+
+// Fake http Request with Promise
+const mock = (success, timeout = 1000) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (success) {
+                resolve('success');
+            } else {
+                reject(Error('Ops...'));
+            }
+        }, timeout);
+    });
+};
+
+(() => {
+    try {
+        mock(true, 100).then(
+            (res) => console.log(res),
+        );
+    } catch (e) {
+        console.log(e.message);
+    }
+})();
+
+(async () => {
+    const result = await mock(true, 200);
+    console.log(result);
+})();
+
+const someEvent = async () => { // Async arrow function
+    const result = await mock(true, 300);
+    console.log(result);
+};
+
+const someEvent2 = async function() { // Async function expression
+    const result = await mock(true, 400);
+    console.log(result);
+}
+
+someEvent();
+someEvent2();
+
+// Resolving Promises
+const pro1 = Promise.resolve(30);
+const pro2 = 40;
+const pro3 = new Promise(function (resolve, reject) {
+    resolve(50);
+});
+
+Promise.all([pro1, pro2, pro3]).then(
+    (res) => console.log(res),
+);
