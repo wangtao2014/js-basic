@@ -243,10 +243,11 @@ const mySong = new Song({
 });
 
 // modules
-// import { sayHello, sayHi } from './say.js';
-const sayHiModule = require('./say.js');
-console.log(sayHiModule.sayHi('hello'));
-console.log(sayHiModule.sayHello('hello'));
+import { sayHello, sayHi } from './say.js';
+// import * as say from './say.js'; // 建议使用上面的方式引入
+// const sayHiModule = require('./say.js');
+console.log(sayHi('hello'));
+console.log(sayHello('hello'));
 
 // promise
 const promise = new Promise((resolve, reject) => {
@@ -333,3 +334,12 @@ const pro3 = new Promise(function (resolve, reject) {
 Promise.all([pro1, pro2, pro3]).then(
     (res) => console.log(res),
 );
+
+// string is iterable
+const iterableString = "hello"
+for (const iterableStringElement of iterableString) {
+    console.log(iterableStringElement)
+}
+
+// 可迭代对象（有 Symbol.iterator() 方法）和 类数组对象（有索引和 length 属性）
+// 两者都可以通过 Array.from 转成数组，就可以使用数组提供的方法

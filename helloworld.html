@@ -3,6 +3,7 @@
 <script src="script/clock.js"></script>
 <script src="script/extended-clock.js"></script>
 <script>
+    console.log('🔥1');
     let lowResolutionClock = new ExtendedClock({
         template: 'h:m:s',
         precision: 2000
@@ -12,26 +13,30 @@
     setTimeout(() => lowResolutionClock.stop(), 10000);
 
 </script>
-<script type="module">
-    window.user = "hisssss";
-    import { sayHi, sayHello } from './script/say.js';
-    document.body.innerHTML = sayHi('John');
-    document.body.innerHTML = sayHello('John');
-</script>
 
 <script type="module">
-    console.log(window.user);
-    // console.log(import.meta.url);
+    console.log('🔥2');
+    window.user = "window中的全局变量";
+    import { sayHi, sayHello } from './script/say.js';
+    document.body.innerHTML = sayHi('John') + ' ' + sayHello('John');
 </script>
 
 <head>
     <meta charset="UTF-8" />
     <title>Hello World</title>
 
-    <script src="script/outils.min.js"></script>
+    <script src="script/outils.min.js">
+        console.log('🔥4');
+    </script>
+
+    <script type="module">
+        console.log('🔥3');
+        console.log(window.user);
+    </script>
 
     <!-- JS代码需要编写到script中 -->
     <script>
+        console.log('🔥5');
         window.currentUser = {
             name: "John",
         };
@@ -49,13 +54,16 @@
 </head>
 
 <body>
+    <script>
+        console.log('🔥6');
+    </script>
     <!-- <script src="script/script.js"></script>-->
     <!-- <script src="script/fun_invoke.js" ></script> -->
     <!-- <script src="script/varable.js" ></script> -->
     <!-- <script src="script/object.js"></script> -->
     <!-- <script src="script/calculator.js"></script> -->
     <!-- <script src="script/symbol.js"></script> -->
-    <!-- <script src="script/array.js"></script> -->
+     <script src="script/array.js"></script>
     <!-- <script src="script/iter.js"></script> -->
     <!-- <script src="script/refactor.js"></script> -->
     <!-- <script src="script/json.js"></script> -->
@@ -72,7 +80,7 @@
     <!-- <script src="script/pro.js"></script> -->
     <!-- <script src="script/user.js"></script> -->
     <!-- <script src="script/promise2.js"></script> -->
-     <script type="module" src="script/quickref.js"></script>
+    <!-- <script type="module" src="script/quickref.js"></script>-->
 </body>
 
 </html>
