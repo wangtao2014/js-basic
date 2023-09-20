@@ -24,3 +24,12 @@ console.log(f1(1,2));
 const f2 = (a, b) => a * b;
 console.log(f2(2, 3));
 
+const numbers = [1, 2, 3];
+const newFirstNumber = 4;
+const result = numbers.concat(newFirstNumber);
+// const result = [newFirstNumber].concat(numbers);
+console.log(numbers);
+console.log(result);
+
+const total = result.reduce((accumulator, currentValue) => accumulator + currentValue);
+console.log(total);
