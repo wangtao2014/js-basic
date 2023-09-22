@@ -14,7 +14,8 @@ for (let value of animals) {
 }
 
 let hello = "hello";
-console.log(typeof hello);
+console.log(typeof(hello));
+console.log(typeof animals);
 
 const f1 = function (num1, num2) {
     return num1 + num2;
