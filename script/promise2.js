@@ -14,6 +14,7 @@ Promise.all(requests)
         response => console.log(`${response.url}: ${response.status}`)
     ));
 
+/*
 async function loadJson(url) { // (1)
     let response = await fetch(url); // (2)
 
@@ -27,7 +28,7 @@ async function loadJson(url) { // (1)
 
 loadJson('https://javascript.info/no-such-user.json')
     .catch((error) => console.log(error)); // Error: 404 (4)
-
+*/
 // promise.all 是全有或全无的情况，而 promise.allSettled 则是每个 promise 都完成的情况
 // Promise.allSettled 是对 promise.all 的补充，它接受一个 promise 数组，并返回一个 promise 数组
 // promise.race 与promise.all 类似，但只等待第一个 promise 完成的结果（或 error）进行返回
@@ -36,10 +37,11 @@ loadJson('https://javascript.info/no-such-user.json')
 
 // Promisification 由于许多函数和库都是基于回调的，因此，在实际开发中经常会需要进行这种转换。
 // 因为使用 promise 更加方便，所以将基于回调的函数和库 promise 化是有意义的。
+// promisify wrapper function
 
 let loadScriptPromise = function (src) {
     return new Promise((resolve, reject) => {
-        loadScript(src, (error, script) => {
+        loadScript(src, function (error, script) {
             if (error) reject(error);
             else resolve(script);
         });
@@ -55,3 +57,5 @@ function loadScript(src, callback) {
 
     document.head.append(script);
 }
+
+loadScriptPromise('./script/promise.js').then((script) => console.log('🔥' + script));
